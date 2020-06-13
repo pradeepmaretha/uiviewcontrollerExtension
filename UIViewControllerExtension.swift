@@ -43,8 +43,7 @@ extension UIViewController{
                 completionHandler(JSON as? NSDictionary, nil)
                 }
             case .failure(let error):
-                
-           //     hide Loader
+               
                 DispatchQueue.main.async {
                 completionHandler(nil, error as NSError)
                 }
@@ -61,9 +60,7 @@ extension UIViewController{
     func getNetworkService(Param:[String:String],url:String,header:HTTPHeaders,completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
     
         if Connectivity.isConnectedToInternet{
-        
-     //   showLoader(options: loaderOptions.shortText)
-        
+                
         let Url = apiURL.baseURL + url
         
         Alamofire.request(Url, method: .get, parameters: Param, encoding: URLEncoding.default, headers: header).responseJSON {
@@ -96,7 +93,7 @@ extension UIViewController{
     
     func ContactNetworkService(Param:[String:Any],url:String,header:HTTPHeaders,completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
         if Connectivity.isConnectedToInternet{
-//            showLoader(options: loaderOptions.shortText)
+
             let Url = apiURL.baseURL + url
             
             
